@@ -15,4 +15,8 @@ export class FeatureFlagService {
     return this.http.get<number>(`${this.baseUrl}/flags`);
   }
 
+  setPercentage(value: number) {
+    return this.http.post(`${this.baseUrl}/flags/admin`, value);
+  }
+
 }

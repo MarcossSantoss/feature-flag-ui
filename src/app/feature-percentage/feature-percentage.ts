@@ -9,13 +9,11 @@ import { Component } from '@angular/core';
 })
 export class FeaturePercentage {
 
-  percentage!: number;
+  percentage = 0;
 
   constructor(private featureFlagService: FeatureFlagService) { }
 
   ngOnInit(): void {
-    this.featureFlagService.getPercentage().subscribe(value => {
-      this.percentage = value;
-    });
+    this.featureFlagService.getPercentage().subscribe(value => { this.percentage = value; });
   }
 }

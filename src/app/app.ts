@@ -5,7 +5,7 @@ import { AdminPercentage } from "./admin-percentage/admin-percentage";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FeaturePercentage, AdminPercentage],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
