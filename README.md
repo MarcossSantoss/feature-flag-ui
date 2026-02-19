@@ -46,13 +46,13 @@ All confirmation actions use **SweetAlert (Swal)** for user feedback.
 Below are screenshots of the main application screens.
 
 ### Home
-![Home screen](assets/images/home.png)
+![Home screen](src/assets/images/home.png)
 
 ### Login
-![Login screen](assets/images/login.png)
+![Login screen](src/assets/images/login.png)
 
 ### Admin Area
-![Admin area](assets/images/admin.png)
+![Admin area](src/assets/images/admin.png)
 
 The admin area allows authorized users to manage feature rollout percentages in real time.
 
