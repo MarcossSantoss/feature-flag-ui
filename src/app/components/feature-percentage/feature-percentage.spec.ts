@@ -10,7 +10,7 @@ describe('FeaturePercentage', () => {
     await TestBed.configureTestingModule({
       imports: [FeaturePercentage]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(FeaturePercentage);
     component = fixture.componentInstance;

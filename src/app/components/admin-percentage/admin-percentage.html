@@ -1,0 +1,47 @@
+<div class="page" [style.--glow-intensity]="intensity">
+  <a routerLink="/" class="back-link">
+    <span>←</span>
+    <span>public view</span>
+  </a>
+
+  <div class="card">
+    <span class="label">FEATURE FLAG</span>
+    <h1>Rollout Control</h1>
+
+    <div class="percentage">
+      <span class="value" [style.color]="'hsl(270 ' + (50 + intensity * 20) + '% ' + (60 + intensity * 20) + '%)'">
+        {{ draft }}
+      </span>
+      <span class="percent">%</span>
+    </div>
+
+    <div class="slider">
+      <input type="range" min="0" max="100" [value]="draft" (input)="draft = $any($event.target).valueAsNumber"
+        [style.background]="
+          'linear-gradient(to right, rgba(139, 92, 246, 0.6) ' + draft +
+          '%, rgba(139, 92, 246, 0.1) ' + draft + '%)'
+        " />
+      <div class="limits">
+        <span>0%</span>
+        <span>100%</span>
+      </div>
+    </div>
+
+    <button (click)="save()" [disabled]="!hasChanges">
+      {{ hasChanges ? 'Save Configuration' : 'Saved' }}
+    </button>
+
+    <div class="current">
+      Current value: {{ percentage }}%
+    </div>
+
+    <button class="logout-btn-footer" (click)="logout()">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+        <polyline points="16 17 21 12 16 7"></polyline>
+        <line x1="21" y1="12" x2="9" y2="12"></line>
+      </svg>
+      <span>Logout</span>
+    </button>
+  </div>
+</div>

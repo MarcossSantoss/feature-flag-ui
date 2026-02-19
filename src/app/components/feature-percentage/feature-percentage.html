@@ -1,0 +1,17 @@
+<div class="page" [style.--glow-intensity]="intensity">
+  <a routerLink="/admin" class="admin-link">
+    <span>admin</span>
+    <span>→</span>
+  </a>
+
+  <div class="center">
+    <span class="subtitle">FEATURE ROLLOUT</span>
+
+    <div class="percentage">
+      <span class="value" [style.color]="'hsl(270 ' + (50 + intensity * 20) + '% ' + (60 + intensity * 20) + '%)'">
+        {{ percentage }}
+      </span>
+      <span class="percent">%</span>
+    </div>
+  </div>
+</div>

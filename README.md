@@ -1,59 +1,95 @@
-# FeatureFlagUi
+# Feature Flag UI
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.5.
+Frontend application for a **feature flag system with percentage-based rollout control**.
 
-## Development server
+This project provides a clean and modern interface to visualize feature rollout status and, for authorized users, manage rollout percentages in real time.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## Overview
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+**Feature Flag UI** is the frontend layer of a feature rollout system designed to work with a backend API that controls business rules and authorization.
 
-## Code scaffolding
+The goal of this project is to demonstrate:
+- dynamic UI behavior driven by backend configuration
+- separation between public and administrative views
+- Google Sign-In integration for admin access
+- a simple and intuitive rollout management experience
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## Application flow
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Public view
+- Displays the current rollout percentage
+- No authentication required
+- Read-only access
 
-```bash
-ng generate --help
-```
+### Admin area
+1. User clicks **Admin**
+2. Redirected to the login screen
+3. Authenticates using **Google Sign-In**
+4. Gains access to the admin dashboard
 
-## Building
+From the admin dashboard, the user can:
+- Adjust the rollout percentage using a slider
+- Save changes
+- Return to the public view
+- Log out
 
-To build the project run:
+All confirmation actions use **SweetAlert (Swal)** for user feedback.
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## User Interface
 
-## Running unit tests
+Below are screenshots of the main application screens.
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+### Home
+![Home screen](assets/images/home.png)
 
-```bash
-ng test
-```
+### Login
+![Login screen](assets/images/login.png)
 
-## Running end-to-end tests
+### Admin Area
+![Admin area](assets/images/admin.png)
 
-For end-to-end (e2e) testing, run:
+The admin area allows authorized users to manage feature rollout percentages in real time.
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## UI and design
 
-## Additional Resources
+The interface follows a dark theme with:
+- purple and neon accents
+- minimal and focused layout
+- emphasis on readability and interaction clarity
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+The rollout percentage is the main visual element, keeping the interface simple and direct.
+
+---
+
+## Authentication
+
+Authentication is handled using **Google Identity Services**.
+
+The frontend:
+- retrieves a Google JWT token
+- sends the token to the backend API
+- does not perform authorization logic locally
+- relies entirely on the backend for access control
+
+---
+
+## Environment configuration
+
+The application uses an environment file to define API communication and Google authentication settings.
+
+Example:
+
+```ts
+export const environment = {
+  production: false,
+  apiUrl: 'https://localhost:7067',
+  googleClientId: 'YOUR_GOOGLE_CLIENT_ID'
+};
